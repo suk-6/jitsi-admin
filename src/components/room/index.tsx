@@ -12,7 +12,7 @@ export const Room = ({ room }: { room: RoomModel }) => {
 					<div className="flex flex-row gap-2 text-lg">
 						<h1>{room.name}</h1>
 						<div
-							className={`rounded-lg px-1 my-[0.2rem] flex justify-center items-center text-white text-xs
+							className={`rounded-lg px-[0.4rem] my-[0.2rem] flex justify-center items-center text-white text-xs
 											${room.status === RoomStatus.ACTIVE ? "bg-green-600" : "bg-red-600"}`}
 						>
 							{room.status === RoomStatus.ACTIVE ? (
