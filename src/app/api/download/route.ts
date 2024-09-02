@@ -15,9 +15,7 @@ export const GET = async (req: NextRequest) => {
 	);
 
 	if (!rawData.ok) {
-		return new Response(null, {
-			status: rawData.status,
-		});
+		throw new Error("Failed to fetch video data");
 	}
 
 	const blob = await rawData.blob();
