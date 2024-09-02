@@ -14,6 +14,7 @@ export const DownloadButton = ({ roomId }: { roomId: string }) => {
 				setLoading(true);
 				fetch(`/api/download?id=${roomId}`)
 					.then((res) => {
+						if (!res.ok) throw new Error();
 						res
 							.blob()
 							.then((blob) => {
@@ -26,7 +27,9 @@ export const DownloadButton = ({ roomId }: { roomId: string }) => {
 							.then(() => setLoading(false));
 					})
 					.catch(() => {
-						alert("파일 다운로드에 실패했습니다.");
+						alert(
+							"파일이 아직 준비되지 않았거나, 내부적인 오류가 발생했습니다."
+						);
 						setLoading(false);
 					});
 			}}
