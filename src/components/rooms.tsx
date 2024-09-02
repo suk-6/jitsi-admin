@@ -8,7 +8,9 @@ export const Rooms = () => {
 	const [rooms, setRooms] = useState<RoomModel[]>([]);
 
 	useEffect(() => {
-		fetch("/api/rooms").then((res) =>
+		fetch("/api/rooms", {
+			cache: "no-store",
+		}).then((res) =>
 			res.json().then((data) => {
 				setRooms(data);
 			})
